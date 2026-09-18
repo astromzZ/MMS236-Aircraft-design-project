@@ -19,10 +19,10 @@ The following requirements have been given.
 | Airport Compatibility      | F                                 |
 | Technology Freeze EIS-year | 2050                              |
 | **Take-off and landing**   |                                   |
-| Take-off flight level      | 2990 m                            |
+| Balanced field length at MTOW | <= 2990 m                      |
 | Initial climb rate         | 2800 ft/min, 6 degree climb angle |
 | Approach speed             | 146 kts                           |
-| Landing field length       | 2300 m                            |
+| Landing field length       | <= 2300 m                         |
 | **Cruise**                 |                                   |
 | Initial cruise altitude    | 35 000 ft                         |
 | **Reserves**               |                                   |
