@@ -1,0 +1,11 @@
+void run_case(bool changed){
+ClearVSPModel();ReadVSPFile("C:/Users/cevin/Documents/Kod/MMS236-Aircraft-design-project/Our_model_plane_V2.vsp3");
+if(changed){array<string>@ ids=FindGeoms();for(uint i=0;i<ids.size();i++) if(GetGeomName(ids[i])=="AilesA380"){
+string surf=GetXSecSurf(ids[i],0);for(int j=0;j<GetNumXSec(surf);j++){string xs=GetXSec(surf,j);SetParmVal(GetXSecParm(xs,"ThickChord"),0.10);if(j>0)SetParmVal(xs,"Sweep","XSec",42.169222907);}}}
+Update();
+if(changed)WriteVSPFile("candidate_q40_tc10.vsp3",SET_ALL);
+SetAnalysisInputDefaults("ParasiteDrag");
+string rid=ExecAnalysis("ParasiteDrag");
+if(changed)WriteResultsCSVFile(rid,"parasite_candidate.csv");else WriteResultsCSVFile(rid,"parasite_baseline.csv");
+}
+void main(){run_case(false);run_case(true);}

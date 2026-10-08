@@ -1,0 +1,9 @@
+void main() {
+ReadVSPFile("C:/Users/cevin/Documents/Kod/MMS236-Aircraft-design-project/Our_model_plane_V2.vsp3");
+Update();
+SetAnalysisInputDefaults("WaveDrag");
+PrintAnalysisInputs("WaveDrag");
+string rid = ExecAnalysis("WaveDrag");
+PrintResults(rid);
+WriteResultsCSVFile(rid, "wave_saved.csv");
+}

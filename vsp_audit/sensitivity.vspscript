@@ -1,0 +1,23 @@
+void run_case(string label, int mode){
+ClearVSPModel(); ReadVSPFile("C:/Users/cevin/Documents/Kod/MMS236-Aircraft-design-project/Our_model_plane_V2.vsp3");
+array<string>@ ids=FindGeoms();
+for(uint i=0;i<ids.size();i++){
+string name=GetGeomName(ids[i]);
+if(name=="Moteurs internes") {
+if(mode==1) SetParmVal(ids[i],"ThickChord","Design",0.12);
+if(mode==2) SetParmVal(ids[i],"X_Rel_Location","XForm",28.521109547);
+if(mode==3) SetParmVal(ids[i],"X_Rel_Location","XForm",38.521109547);
+if(mode==4){SetParmVal(ids[i],"Tess_U","Shape",65);SetParmVal(ids[i],"Tess_W","Shape",65);}
+}
+if(name=="AilesA380" && mode==5) {
+string xs=GetXSec(GetXSecSurf(ids[i],0),0);
+SetParmVal(GetXSecParm(xs,"ThickChord"),0.12);
+}
+}
+Update();SetAnalysisInputDefaults("WaveDrag");
+array<int> ns(1);ns[0]=160;SetIntAnalysisInput("WaveDrag","NumSlices",ns);
+ns[0]=3;SetIntAnalysisInput("WaveDrag","NumRotSects",ns);
+string rid=ExecAnalysis("WaveDrag");WriteResultsCSVFile(rid,label+".csv");
+Print(label);array<double>@ a=GetDoubleResults(rid,"MaxArea");Print(a[0]);
+}
+void main(){run_case("engine_thin",1);run_case("engine_forward5",2);run_case("engine_aft5",3);run_case("engine_finemesh",4);run_case("wing_root12",5);}

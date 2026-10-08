@@ -1,0 +1,2 @@
+void run_case(string label){ClearVSPModel();ReadVSPFile("C:/Users/cevin/Documents/Kod/MMS236-Aircraft-design-project/vsp_audit/"+label+".vsp3");Update();SetAnalysisInputDefaults("WaveDrag");array<int> ns(1);ns[0]=320;SetIntAnalysisInput("WaveDrag","NumSlices",ns);ns[0]=3;SetIntAnalysisInput("WaveDrag","NumRotSects",ns);WriteResultsCSVFile(ExecAnalysis("WaveDrag"),label+"_320.csv");}
+void main(){run_case("candidate_q34_tc8");run_case("candidate_q34_tc9");}

@@ -1,0 +1,23 @@
+PARASITE DRAG BUILD UP DATA 
+
+Mach, Altitude (ft), Vinf (Mach), S_ref (m^2)
+0.850000, 35000.000000, 0.850000, 530.360000 
+
+Temp (F), Pressure (lbf/ft^2), Density (slug/ft^3) 
+-65.815600, 497.956629, 0.000737 
+
+Lam Cf Eqn, Turb Cf Eqn 
+Laminar Blasius, Compressible Schlichting 
+
+Component Name,S_wet (m^2),L_ref (m),t/c or d/l,FF,FF Eqn Type,Re,% Lam,Cf,Q (Interference Factor),f (m^2),Cd,% Total 
+FuselageA380,1638.896465, 82.483388, 10.610948,1.049256, Hoerner Streamlined Body,550553320.268516, 25.000000,0.001213, 1.000000,2.085735, 0.003933, 40.458620 
+AilesA380,1023.882077, 8.360076, 0.090245,1.184471, Hoerner,55801147.888763, 50.000000,0.001158, 1.000000,1.403802, 0.002647, 27.230645 
+VTP HTP,172.752044, 5.426215, 0.100625,1.207402, Hoerner,36218454.689283, 50.000000,0.001252, 1.000000,0.261087, 0.000492, 5.064512 
+Fin tail,147.077355, 7.549039, 0.099918,1.205817, Hoerner,50387704.819872, 50.000000,0.001179, 1.000000,0.209043, 0.000394, 4.054977 
+[B] Moteurs internes,232.699847, 4.403000, 2.284595,2.021431, Hoerner Streamlined Body,29388781.591218, 0.000000,0.002542, 1.000000,1.195562, 0.002254, 23.191245 
+
+Excrescences, Type, Input
+
+ , , , , , , , , , Geometry Sub-Total:, 5.155230, 0.009720, 100.000000 
+ , , , , , , , , , Excrescence Sub-Total:, 0.000000, 0.000000, 0.000000 
+ , , , , , , , , , Totals:, 5.155230, 0.009720, 100.000000 

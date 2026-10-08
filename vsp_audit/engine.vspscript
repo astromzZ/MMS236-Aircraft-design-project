@@ -1,0 +1,19 @@
+void loadengine(){
+ClearVSPModel(); ReadVSPFile("C:/Users/cevin/Documents/Kod/MMS236-Aircraft-design-project/Our_model_plane_V2.vsp3");
+array<string>@ ids=FindGeoms();
+for(uint i=0;i<ids.size();i++) { bool keep=GetGeomName(ids[i])=="Moteurs internes"; SetSetFlag(ids[i],1,keep);
+if(keep){ Print("engine bbox min"); Print(GetGeomBBoxMin(ids[i])); Print("max"); Print(GetGeomBBoxMax(ids[i])); ExportFile("engine.stl",1,EXPORT_STL); }
+}
+Update();
+}
+void main(){
+loadengine();
+string mesh=ComputePlaneSlice(1,161,vec3d(1,0,0),true,0,0,false);
+WriteResultsCSVFile(FindLatestResultsID("Slice"),"engine_material.csv");
+loadengine();
+mesh=ComputePlaneSlice(1,161,vec3d(1,0,0),true,0,0,true);
+WriteResultsCSVFile(FindLatestResultsID("Slice"),"engine_duct.csv");
+loadengine();SetAnalysisInputDefaults("WaveDrag");
+array<int> ns(1);ns[0]=160;SetIntAnalysisInput("WaveDrag","NumSlices",ns);
+WriteResultsCSVFile(ExecAnalysis("WaveDrag"),"engine_wave.csv");
+}

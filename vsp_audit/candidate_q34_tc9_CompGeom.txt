@@ -1,0 +1,34 @@
+...Comp Geom...
+5 Num Comps
+8 Total Num Meshes
+31224 Total Num Tris
+
+Theo_Area   Wet_Area   Theo_Vol    Wet_Vol  Name
+ 1698.441   1638.896   2935.871   2913.763  FuselageA380   
+ 1080.623   1023.882    271.737    264.814  AilesA380      
+  110.179     86.376     19.695     15.880  VTP HTP        
+  110.179     86.376     19.695     15.881  VTP HTP        
+  178.651    147.077     42.502     35.989  Fin tail       
+  116.350    116.350     36.651     36.651  Moteurs internes
+  116.350    116.350     36.651     36.651  Moteurs internes
+-------------------------------------------------
+ 3410.773   3215.308   3362.803   3319.629  Totals         
+
+Tag_Theo_Area   Tag_Wet_Area    Tag_Name
+     1698.441       1638.896    FuselageA380_S_Surf0
+      540.312        511.941    AilesA380_S_Surf0
+      540.312        511.941    AilesA380_S_Surf1
+       94.031         70.228    VTP HTP_S_Surf0
+       94.031         70.228    VTP HTP_S_Surf1
+      153.615        122.042    Fin tail_S_Surf0
+      116.350        116.350    Moteurs internes_S_Surf0
+      116.350        116.350    Moteurs internes_S_Surf1
+       16.148         16.148    VTP HTP_S_Surf0,Horizontal tail CS
+       16.148         16.148    VTP HTP_S_Surf1,Horizontal tail CS
+       25.035         25.035    Fin tail_S_Surf0,Vertcal tail CS
+
+ SS_Theo_Area    SS_Wet_Area    SS_Name
+       32.296         32.296    VTP HTP,Horizontal tail CS
+       25.035         25.035    Fin tail,Vertcal tail CS
+WARNING: 1 open meshes merged
+     Merged: AilesA380

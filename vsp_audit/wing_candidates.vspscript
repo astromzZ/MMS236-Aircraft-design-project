@@ -1,0 +1,19 @@
+void run_case(string label,double sweep,double tc){
+ClearVSPModel();ReadVSPFile("C:/Users/cevin/Documents/Kod/MMS236-Aircraft-design-project/Our_model_plane_V2.vsp3");
+array<string>@ ids=FindGeoms();
+for(uint i=0;i<ids.size();i++) if(GetGeomName(ids[i])=="AilesA380"){
+string surf=GetXSecSurf(ids[i],0);
+for(int j=0;j<GetNumXSec(surf);j++){
+string xs=GetXSec(surf,j);SetParmVal(GetXSecParm(xs,"ThickChord"),tc);
+if(j>0) SetParmVal(xs,"Sweep","XSec",sweep);
+}}
+Update();SetAnalysisInputDefaults("WaveDrag");array<int> ns(1);ns[0]=160;SetIntAnalysisInput("WaveDrag","NumSlices",ns);ns[0]=3;SetIntAnalysisInput("WaveDrag","NumRotSects",ns);
+string rid=ExecAnalysis("WaveDrag");WriteResultsCSVFile(rid,label+".csv");Print(label);array<double>@ a=GetDoubleResults(rid,"MaxArea");Print(a[0]);
+}
+void main(){
+run_case("candidate_q30_tc12",32.782221122,0.12);
+run_case("candidate_q30_tc10",32.782221122,0.1);
+run_case("candidate_q35_tc12",37.483667934,0.12);
+run_case("candidate_q35_tc10",37.483667934,0.1);
+run_case("candidate_q40_tc10",42.169222907,0.1);
+}
